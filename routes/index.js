@@ -4,7 +4,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
     res.render('index', {
         title: 'Home Page',
-        name: 'Demis Russo',
+        style: 'style.css',
+        name: 'D R',
         age: 20,
         isDisplayName: true,
         isAgeEnabled: true,
@@ -27,7 +28,14 @@ router.get('/about', (req, res) => {
 router.get('/dashboard', (req, res) => {
     res.render('dashboard', {
         title: 'Dashboard Page',
-        isListEnabled: false
+        isListEnabled: false,
+        author : {
+            firstName: 'ABC',
+            lastName: 'YXZ',
+            project: {
+                name: 'generate'
+            }
+        }
     })
 })
 
