@@ -4,6 +4,9 @@ const handlebars = require('express-handlebars');
 const path = require('path'); //in case we have any problems with the path
 const anotherPage = require('./routes/index');
 
+//static files
+app.use(express.static('public')); 
+
 const hbs = handlebars.create({
     defaultLayout: 'main',
     layoutsDir: path.join(__dirname, 'views/main'),
