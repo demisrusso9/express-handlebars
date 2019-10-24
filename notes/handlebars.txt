@@ -98,5 +98,4 @@ const custom = handlebars.create({
     here we copy all the data, like {defaultLayout: '' }, {layoutsDir: ''} etc.
 
     //and here we create the custom helper
-
 })
