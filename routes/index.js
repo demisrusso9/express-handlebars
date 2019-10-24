@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.get('/about', (req, res) => {
     res.render('about', {
         title: 'About',
-        description: 'Hello, I am Demis Russo, I have 20 year old, Im a student at the Fatec MM on the 6º semester.'
+        description: 'this is a description'
     })
 })
 
