@@ -1,0 +1,102 @@
+const handlebars = require('express-handlebars');
+
+const path = require('path'); // if we have any problems with the path, layoutsDir: path.join(__dirname, 'views/name') 
+
+app.engine('handlebars', handlebars()); 
+
+    inside the function we can use {defaultLayout: 'name'}, 
+    if we want to change the name of 'layouts' folder we use {layoutsDir: 'views/name'}
+    if we want to change the name of 'partials' folder we use {partialsDir: 'views/name'}
+    if we want to change the EXTENSION name of the files we use {extname: '.name'} 
+
+//also have to change the app.engine('handlebars') to the specific name given to the extension, the same thing applies to the app.set('', 'handlebars');
+
+
+// we use this to stop repeating the HTML structure over and over again
+app.set('view engine', 'handlebars');
+
+app.get('/', (req, res) => {
+    res.render('index', { layout: false }) // in case  there is no 'layouts' folder, we have to use it
+})
+
+app.get('/data', (req,res)=>{
+    res.render('data', {
+        //here we can put as many data as you want, to show them just use it {{nameData}} on the handlebars page (in this case 'data')
+        title: '',
+        name: '',
+        age: '',
+    })
+})
+
+index.handlebars (file)
+
+//-----IF HELPER (something is TRUE)
+
+{{#if isDisplayName}}
+  <p>My name is {{name}}</p>
+
+    {{else}}
+    <p>Not found</p>
+{{/if}}
+
+{{#if isAgeEnabled}}
+  {{age}}
+    
+    {{else}}
+      <p>No Age Found</p>
+{{/if}}
+
+//-----UNLESS HELPER (something is FALSE)
+
+{{#unless isListEnabled}}
+
+    <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Donate</li>
+    </ul>
+
+{{/unless}}
+
+//-----EACH HELPER (LOOP), 3 ways to do a loop
+
+{{#each brand as |value key|}}
+    Show all itens on the array
+
+        //1º Using {{this}}
+    <p> {{this}} </p>  
+
+        //2º Using {{.}} 
+    <p> {{.}} </p>  
+
+        //3º Using on the {{#each brand as |value key|}} VALUE is the itens and KEY is the index 
+    <p>{{key}}: {{value}}</p>
+
+{{/each}}
+
+{{#each list as |xValue xKey|}} 
+
+    {{#each xValue.items as |yValue yKey|}}
+        <p>{{yValue}}</p>
+        
+    {{/each}}
+
+    <hr>
+{{/each}}
+
+-- LOOKUP
+
+using KEY or INDEX
+
+<p> {{lookup Object/ArrayName 'key'}} </p>
+
+// we also can create a CUSTOM HELPER using the function that we created on the beginning
+
+const handlebars = require('express-handlebars')
+
+const custom = handlebars.create({
+    here we copy all the data, like {defaultLayout: '' }, {layoutsDir: ''} etc.
+
+    //and here we create the custom helper
+
+})

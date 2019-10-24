@@ -1,0 +1,32 @@
+{{> header}}
+
+<h2>This is the main file (index)</h2>
+
+{{#if isDisplayName}}
+  <p>My name is {{name}}</p>
+
+    {{else}}
+    <p>Not found</p>
+{{/if}}
+
+
+{{#if isAgeEnabled}}
+  {{age}}
+    
+    {{else}}
+      <p>No Age Found</p>
+{{/if}}
+
+{{calculation 50}}
+
+{{#list people}}
+{{!-- 1° Example --}}
+  {{value}}
+  {{test}}
+  
+  {{firstName}} {{lastName}}
+{{/list}}
+
+{{> footer}}
+
+
