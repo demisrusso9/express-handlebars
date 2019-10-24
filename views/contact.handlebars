@@ -1,43 +1,48 @@
 {{> header}}
 
-<h2>Welcome to the Contact Page</h2>
+<div class="card">
+    <div class="card-body">
+        <h2>Welcome to the Contact Page</h2>
 
-{{!--Show all itens on the array --}}
+        {{!--Show all itens on the array --}}
 
-{{#each brand as |value key|}}    
+        <div class="card py-2 px-2">
+            {{#each brand as |value key|}}
 
-    {{!-- 1º Using {{this}} --}}
-    {{!-- <p> {{this}} </p>  --}}
+            {{!-- 1º Using {{this}} --}}
+            {{!-- <p> {{this}} </p>  --}}
 
-    {{!-- 2º Using {{.}} --}}
-    {{!-- <p> {{.}} </p>  --}}
+            {{!-- 2º Using {{.}} --}}
+            {{!-- <p> {{.}} </p>  --}}
 
-    {{!-- 3º Using on the {{#each brand as |value key|}} --}}
-    {{!-- VALUE is the itens and KEY is the index --}}
+            {{!-- 3º Using on the {{#each brand as |value key|}} --}}
+            {{!-- VALUE is the itens and KEY is the index --}}
 
-    <p>{{key}}: {{value}}</p>
+                <p>{{key}}: {{value}}</p>
 
-{{/each}}
+            {{/each}}
+        </div>
+        
+        <div class="card py-2 px-2">
+            {{#each game as |value key|}}
 
-<hr>
+                <p>{{key}}: {{value}}</p>
 
-{{#each game as |value key|}}
-    
-    <p>{{key}}: {{value}}</p>
+            {{/each}}
 
-{{/each}} 
+        </div>
 
-<hr>
+        <div class="card py-2 px-2">
+            {{#each list as |xValue xKey|}}
 
-{{#each list as |xValue xKey|}} 
+                {{#each xValue.items as |yValue yKey|}}
+                <p>{{yValue}}</p>
 
-    {{#each xValue.items as |yValue yKey|}}
-        <p>{{yValue}}</p>
+                {{/each}}
 
-    {{/each}}
-
-    <hr>
-{{/each}}
+            {{/each}}
+        </div>
+    </div>
+</div>
 
 {{> footer}}
-

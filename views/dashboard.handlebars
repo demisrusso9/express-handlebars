@@ -1,13 +1,25 @@
 
 {{> header}}
+<div class="card">
+    <div class="card-body">
+        {{#unless isListEnabled}}
 
-{{#unless isListEnabled}}
+        <h3>Dashboard</h3>
 
-   <h3>Dashboard</h3>
+            {{else}}
+            <p>The VAR above is not FALSE, so Im gonna Appear here </p>
 
-    {{else}}
-        <p>The VAR above is not FALSE, so Im gonna Appear here </p>
+        {{/unless}}
 
-{{/unless}}
+        {{#with author as |x|}}
 
+            {{firstName}} {{lastName}}
+            
+            {{x.project.name}}
+
+        {{/with}}
+  
+    </div>
+</div>
+      
 {{> footer}}

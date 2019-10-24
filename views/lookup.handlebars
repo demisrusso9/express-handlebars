@@ -1,10 +1,18 @@
 {{> header}}
 
-    <h2>Lookup Page</h2>
+<div class="card">
+    <div class="card-body">
+        <h2>Lookup Page</h2>
 
-    <p>{{lookup game 'gameTitle'}}</p> //Looking for a Key called 'gameTitle' on an Object 
+        <p>{{lookup game 'gameTitle'}}</p> {{!-- Looking for a Key called 'gameTitle' on an Object  --}}
 
-    <p>{{lookup brand 3}}</p> //Looking for a Index on an array
+        <p>{{lookup brand 3}}</p> {{!--Looking for a Index on an array --}}
+
+        {{#with game}}
+            <h2>{{year}} {{genre}}</h2>
+        {{/with}}        
+    </div>
+</div>
 
 {{> footer}}
 
