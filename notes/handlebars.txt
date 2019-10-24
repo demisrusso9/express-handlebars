@@ -46,7 +46,7 @@ index.handlebars (file)
       <p>No Age Found</p>
 {{/if}}
 
-//-----UNLESS HELPER (something is FALSE)
+//-----UNLESS HELPER (something is FALSE) opposite of if
 
 {{#unless isListEnabled}}
 
@@ -99,3 +99,15 @@ const custom = handlebars.create({
 
     //and here we create the custom helper
 })
+
+
+-- WITH HELPER, we can access anything that is inside the user object, (optional)we can also create custom var to refer to the main object
+
+ex: user : {
+    login: 'abc'
+    email: 'a@h.c'
+}
+
+{{#with user as |x|}}
+    {{x.login}}  
+{{/with}}
